@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "set NODE_ENV=production && node index.js",
+    "dev": "nodemon index.js",
+    "migrate:dev": "sequelize-cli db:migrate --env development",
+    "migrate:prod": "NODE_ENV=production sequelize-cli db:migrate --env production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "pg": "^8.14.1",
     "pg-hstore": "^2.3.4",
